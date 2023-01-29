@@ -10,6 +10,7 @@ import pages.UnitedHeaderPage;
 import pages.UnitedMainPage;
 import utilities.DropdownHandler;
 import utilities.Waiter;
+import utilities.WindowHandler;
 
 import javax.swing.*;
 import java.util.List;
@@ -111,12 +112,16 @@ public class UnitedMainPageTest extends UnitedBase{
     @Test(priority = 4)
     public void validateOneWayTicketSearch(){
         unitedMainPage.radioButtonsInput.get(1).click();
+        Waiter.pause(5);
         unitedMainPage.flightOriginInput.sendKeys("Chicago, IL, US (ORD)");
-        Waiter.pause(1);
+        Waiter.pause(5);
         unitedMainPage.flightDestinationInput.sendKeys("Miami, FL, US (MIA)");
-        Waiter.pause(1);
-        WebElement monthGrid = driver.findElement(By.className("CalendarMonthGrid_1"));
+        Waiter.pause(5);
+        WebElement monthGrid = driver.findElement(By.cssSelector("input[class*='DateInput_input']"));
         monthGrid.click();
+        Waiter.pause(5);
+        driver.findElement(By.cssSelector("button[class*='1CBAY']")).click();
+        Waiter.pause(5);
         List<WebElement> allDates =
                 driver.findElements(By.xpath("//div[contains(@class, 'CalendarMonth_caption')]//*[text()='February 2023']/../..//tbody//td"));
         for (WebElement date : allDates) {
@@ -125,18 +130,20 @@ public class UnitedMainPageTest extends UnitedBase{
                 break;
             }
         }
-
-       // unitedMainPage.travelersSelectorButton.click();
-        Waiter.pause(1);
+        Waiter.pause(5);
+        unitedMainPage.travelersSelectorButton.click();
+        Waiter.pause(5);
         unitedMainPage.travelersSelectorInput.sendKeys("2");
-        Waiter.pause(1);
         DropdownHandler.clickOnDropdownOption(
                 unitedMainPage.cabinType, unitedMainPage.cabinDropdownOptions, "Business or First");
-        Waiter.pause(1);
-
-
-
+        unitedMainPage.findFlightsButton.click();
+        Waiter.pause(5);
+        WindowHandler.switchToChildWindow();
+        Waiter.pause(5);
+        Assert.assertEquals(unitedFlightSearchResultPage.dateSearchResultHeader.getText(),
+                "DEPART ON: February 28");
+        Waiter.pause(5);
+        driver.close();
+        WindowHandler.switchBackToParentWindow();
     }
-
-
 }
