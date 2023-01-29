@@ -5,12 +5,16 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.asserts.SoftAssert;
 import pages.UnitedBasePage;
+import pages.UnitedHeaderPage;
+import pages.UnitedMainPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 
 public class UnitedBase {
     WebDriver driver;
     UnitedBasePage unitedBasePage;
+    UnitedHeaderPage unitedHeaderPage;
+    UnitedMainPage unitedMainPage;
 
     @BeforeMethod
     public void setup(){
