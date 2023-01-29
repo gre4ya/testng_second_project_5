@@ -22,5 +22,17 @@ public class UnitedMainPage extends UnitedBasePage{
     public WebElement flexibleDatesCheckBoxInput;
     @FindBy(css = "div[class*='2wMRQ']>label")
     public WebElement flexibleDatesCheckBoxLabel;
+    @FindBy(id = "bookFlightOriginInput")
+    public WebElement flightOriginInput;
+    @FindBy(id = "bookFlightDestinationInput")
+    public WebElement flightDestinationInput;
+    @FindBy(id = "DepartDate")
+    public WebElement departDateInput;
+    @FindBy(css = "button[class*='1UzDj']")
+    public WebElement travelersSelectorButton;
+    @FindBy(xpath = "(//div[contains(@class, '2Occ')])[1]/input")
+    public WebElement travelersSelectorInput;
+
+
 
 }
