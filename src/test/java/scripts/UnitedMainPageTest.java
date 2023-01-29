@@ -6,7 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.UnitedBasePage;
-import pages.UnitedHeaderPage;
+import pages.UnitedFlightSearchResultPage;
 import pages.UnitedMainPage;
 import utilities.DropdownHandler;
 import utilities.Waiter;
@@ -22,6 +22,7 @@ public class UnitedMainPageTest extends UnitedBase{
     public void setPage(){
         unitedBasePage = new UnitedBasePage();
         unitedMainPage = new UnitedMainPage();
+        unitedFlightSearchResultPage = new UnitedFlightSearchResultPage();
     }
     /**
      Test Case 2: Validate "Book travel menu" navigation items
@@ -112,36 +113,39 @@ public class UnitedMainPageTest extends UnitedBase{
     @Test(priority = 4)
     public void validateOneWayTicketSearch(){
         unitedMainPage.radioButtonsInput.get(1).click();
-        Waiter.pause(1);
+        unitedMainPage.flightOriginInput.clear();
         unitedMainPage.flightOriginInput.sendKeys("Chicago, IL, US (ORD)");
-        Waiter.pause(1);
+        unitedMainPage.flightDestinationInput.clear();
         unitedMainPage.flightDestinationInput.sendKeys("Miami, FL, US (MIA)");
-        Waiter.pause(1);
-        WebElement monthGrid = driver.findElement(By.cssSelector("input[class*='DateInput_input']"));
-        monthGrid.click();
-        Waiter.pause(1);
-        driver.findElement(By.cssSelector("button[class*='1CBAY']")).click();
-        Waiter.pause(1);
-        List<WebElement> allDates =
-                driver.findElements(By.xpath("//div[contains(@class, 'CalendarMonth_caption')]//*[text()='February 2023']/../..//tbody//td"));
-        for (WebElement date : allDates) {
-            if(date.getText().equals("28")) {
-                date.click();
-                break;
-            }
-        }
-        Waiter.pause(1);
+        //unitedMainPage.departDateInput.click();
+        unitedMainPage.departDateInput.clear();
+        unitedMainPage.departDateInput.sendKeys("Feb 28");
+        unitedMainPage.departDateInput.click();
+
+
+
+//        if(!unitedMainPage.calendarGrid.getText().contains("February 2023"))
+//            driver.findElement(By.cssSelector("button[class*='1CBAY']")).click();
+
+//        WebElement monthGrid = driver.findElement(By.cssSelector("input[class*='DateInput_input']"));
+//        //monthGrid.click();
+//        List<WebElement> allDates =
+//                driver.findElements(By.xpath("//div[contains(@class, 'CalendarMonth_caption')]//*[text()='February 2023']/../..//tbody//td"));
+//
+//        for (WebElement date : allDates) {
+//                if (date.getText().equals("28")) {
+//                    date.click();
+//                    break;
+//                }
+//            }
+
         unitedMainPage.travelersSelectorButton.click();
-        Waiter.pause(1);
         unitedMainPage.travelersSelectorInput.sendKeys("2");
         DropdownHandler.clickOnDropdownOption(
                 unitedMainPage.cabinType, unitedMainPage.cabinDropdownOptions, "Business or First");
         unitedMainPage.findFlightsButton.click();
-        Waiter.pause(1);
         WindowHandler.switchToChildWindow();
-        Waiter.pause(1);
-//        Assert.assertEquals(unitedFlightSearchResultPage.dateSearchResultHeader.getText(),
-//                "DEPART ON: February 28");
-//        driver.close();
+        Assert.assertEquals(unitedFlightSearchResultPage.dateSearchResultHeader.getText(),
+                "DEPART ON: February 28");
     }
 }

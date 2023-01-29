@@ -28,6 +28,8 @@ public class UnitedMainPage extends UnitedBasePage{
     public WebElement flightDestinationInput;
     @FindBy(id = "DepartDate")
     public WebElement departDateInput;
+    @FindBy(css = "//div[contains(@class, 'DayPicker_focusRegion DayPicker_focusRegion_1')]")
+    public WebElement calendarGrid;
     @FindBy(css = "button[class*='1UzDj']")
     public WebElement travelersSelectorButton;
     @FindBy(xpath = "(//div[contains(@class, '2Occ')])[1]/input")
