@@ -41,6 +41,4 @@ public class UnitedMainPage extends UnitedBasePage{
     @FindBy(css = "button[class*='2fg9l']")
     public WebElement findFlightsButton;
 
-
-
 }

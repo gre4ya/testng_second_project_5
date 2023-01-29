@@ -1,7 +1,6 @@
 package utilities;
 
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
@@ -15,19 +14,4 @@ public class DropdownHandler {
             }
         }
     }
-
-
-
-    //Method for selection option in dropdown
-
-    public static void selectByVisibleText(WebElement dropdown, String text){
-        new Select(dropdown).selectByVisibleText(text);
-    }
-    public static void selectByValue(WebElement dropdown, String text){
-        new Select(dropdown).selectByValue(text);
-    }
-    public static void selectByIndex(WebElement dropdown, int index){
-        new Select(dropdown).selectByIndex(index);
-    }
-
 }

@@ -1,7 +1,5 @@
 package scripts;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -9,11 +7,8 @@ import pages.UnitedBasePage;
 import pages.UnitedFlightSearchResultPage;
 import pages.UnitedMainPage;
 import utilities.DropdownHandler;
-import utilities.Waiter;
 import utilities.WindowHandler;
 
-import javax.swing.*;
-import java.util.List;
 import java.util.stream.IntStream;
 
 public class UnitedMainPageTest extends UnitedBase{
@@ -117,27 +112,14 @@ public class UnitedMainPageTest extends UnitedBase{
         unitedMainPage.flightOriginInput.sendKeys("Chicago, IL, US (ORD)");
         unitedMainPage.flightDestinationInput.clear();
         unitedMainPage.flightDestinationInput.sendKeys("Miami, FL, US (MIA)");
-        //unitedMainPage.departDateInput.click();
         unitedMainPage.departDateInput.clear();
         unitedMainPage.departDateInput.sendKeys("Feb 28");
         unitedMainPage.departDateInput.click();
 
 
-
-//        if(!unitedMainPage.calendarGrid.getText().contains("February 2023"))
-//            driver.findElement(By.cssSelector("button[class*='1CBAY']")).click();
-
 //        WebElement monthGrid = driver.findElement(By.cssSelector("input[class*='DateInput_input']"));
-//        //monthGrid.click();
 //        List<WebElement> allDates =
 //                driver.findElements(By.xpath("//div[contains(@class, 'CalendarMonth_caption')]//*[text()='February 2023']/../..//tbody//td"));
-//
-//        for (WebElement date : allDates) {
-//                if (date.getText().equals("28")) {
-//                    date.click();
-//                    break;
-//                }
-//            }
 
         unitedMainPage.travelersSelectorButton.click();
         unitedMainPage.travelersSelectorInput.sendKeys("2");
