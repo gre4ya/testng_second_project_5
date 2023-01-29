@@ -88,4 +88,6 @@ public class UnitedMainPageTest extends UnitedBase{
         Assert.assertFalse(unitedMainPage.bookWithMilesCheckBoxInput.isSelected());
         Assert.assertFalse(unitedMainPage.flexibleDatesCheckBoxInput.isSelected());
     }
+
+
 }
