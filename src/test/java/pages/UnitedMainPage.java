@@ -36,6 +36,8 @@ public class UnitedMainPage extends UnitedBasePage{
     public List<WebElement> cabinDropdownOptions;
     @FindBy(id = "cabinType")
     public WebElement cabinType;
+    @FindBy(css = "button[class*='2fg9l']")
+    public WebElement findFlightsButton;
 
 
 

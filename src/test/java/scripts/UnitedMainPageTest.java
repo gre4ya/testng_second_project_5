@@ -1,5 +1,7 @@
 package scripts;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -10,6 +12,7 @@ import utilities.DropdownHandler;
 import utilities.Waiter;
 
 import javax.swing.*;
+import java.util.List;
 import java.util.stream.IntStream;
 
 public class UnitedMainPageTest extends UnitedBase{
@@ -109,15 +112,29 @@ public class UnitedMainPageTest extends UnitedBase{
     public void validateOneWayTicketSearch(){
         unitedMainPage.radioButtonsInput.get(1).click();
         unitedMainPage.flightOriginInput.sendKeys("Chicago, IL, US (ORD)");
+        Waiter.pause(1);
         unitedMainPage.flightDestinationInput.sendKeys("Miami, FL, US (MIA)");
-        //unitedMainPage.departDateInput.sendKeys("Feb 28");
+        Waiter.pause(1);
+        WebElement monthGrid = driver.findElement(By.className("CalendarMonthGrid_1"));
+        monthGrid.click();
+        List<WebElement> allDates =
+                driver.findElements(By.xpath("//div[contains(@class, 'CalendarMonth_caption')]//*[text()='February 2023']/../..//tbody//td"));
+        for (WebElement date : allDates) {
+            if(date.getText().equals("28")) {
+                date.click();
+                break;
+            }
+        }
 
-        unitedMainPage.travelersSelectorButton.click();
+       // unitedMainPage.travelersSelectorButton.click();
+        Waiter.pause(1);
         unitedMainPage.travelersSelectorInput.sendKeys("2");
-        unitedMainPage.cabinType.click();
+        Waiter.pause(1);
         DropdownHandler.clickOnDropdownOption(
                 unitedMainPage.cabinType, unitedMainPage.cabinDropdownOptions, "Business or First");
-        unitedMainPage.cabinType.click();
+        Waiter.pause(1);
+
+
 
     }
 
