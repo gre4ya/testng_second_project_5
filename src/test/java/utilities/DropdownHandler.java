@@ -16,6 +16,8 @@ public class DropdownHandler {
         }
     }
 
+
+
     //Method for selection option in dropdown
 
     public static void selectByVisibleText(WebElement dropdown, String text){

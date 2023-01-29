@@ -32,6 +32,10 @@ public class UnitedMainPage extends UnitedBasePage{
     public WebElement travelersSelectorButton;
     @FindBy(xpath = "(//div[contains(@class, '2Occ')])[1]/input")
     public WebElement travelersSelectorInput;
+    @FindBy(css = "li[id*='cabinType_item']")
+    public List<WebElement> cabinDropdownOptions;
+    @FindBy(id = "cabinType")
+    public WebElement cabinType;
 
 
 

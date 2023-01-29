@@ -6,7 +6,10 @@ import org.testng.annotations.Test;
 import pages.UnitedBasePage;
 import pages.UnitedHeaderPage;
 import pages.UnitedMainPage;
+import utilities.DropdownHandler;
+import utilities.Waiter;
 
+import javax.swing.*;
 import java.util.stream.IntStream;
 
 public class UnitedMainPageTest extends UnitedBase{
@@ -107,10 +110,14 @@ public class UnitedMainPageTest extends UnitedBase{
         unitedMainPage.radioButtonsInput.get(1).click();
         unitedMainPage.flightOriginInput.sendKeys("Chicago, IL, US (ORD)");
         unitedMainPage.flightDestinationInput.sendKeys("Miami, FL, US (MIA)");
-        unitedMainPage.departDateInput.sendKeys("Feb 28");
+        //unitedMainPage.departDateInput.sendKeys("Feb 28");
+
         unitedMainPage.travelersSelectorButton.click();
         unitedMainPage.travelersSelectorInput.sendKeys("2");
-
+        unitedMainPage.cabinType.click();
+        DropdownHandler.clickOnDropdownOption(
+                unitedMainPage.cabinType, unitedMainPage.cabinDropdownOptions, "Business or First");
+        unitedMainPage.cabinType.click();
 
     }
 
