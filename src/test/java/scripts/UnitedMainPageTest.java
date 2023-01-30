@@ -55,7 +55,9 @@ public class UnitedMainPageTest extends UnitedBase{
         });
         Assert.assertTrue(unitedMainPage.radioButtonsInput.get(0).isSelected());
         Assert.assertFalse(unitedMainPage.radioButtonsInput.get(1).isSelected());
+
         unitedMainPage.radioButtonsInput.get(1).click();
+
         Assert.assertTrue(unitedMainPage.radioButtonsInput.get(1).isSelected());
         Assert.assertFalse(unitedMainPage.radioButtonsInput.get(0).isSelected());
     }
@@ -109,13 +111,15 @@ public class UnitedMainPageTest extends UnitedBase{
     public void validateOneWayTicketSearch(){
         unitedMainPage.radioButtonsInput.get(1).click();
         unitedMainPage.flightOriginInput.clear();
+
         unitedMainPage.flightOriginInput.sendKeys("Chicago, IL, US (ORD)");
         unitedMainPage.flightDestinationInput.clear();
+
         unitedMainPage.flightDestinationInput.sendKeys("Miami, FL, US (MIA)");
         unitedMainPage.departDateInput.clear();
+
         unitedMainPage.departDateInput.sendKeys("Feb 28");
         unitedMainPage.departDateInput.click();
-
 
 //        WebElement monthGrid = driver.findElement(By.cssSelector("input[class*='DateInput_input']"));
 //        List<WebElement> allDates =
@@ -123,9 +127,11 @@ public class UnitedMainPageTest extends UnitedBase{
 
         unitedMainPage.travelersSelectorButton.click();
         unitedMainPage.travelersSelectorInput.sendKeys("2");
+
         DropdownHandler.clickOnDropdownOption(
                 unitedMainPage.cabinType, unitedMainPage.cabinDropdownOptions, "Business or First");
         unitedMainPage.findFlightsButton.click();
+
         WindowHandler.switchToChildWindow();
         Assert.assertEquals(unitedFlightSearchResultPage.dateSearchResultHeader.getText(),
                 "DEPART ON: February 28");
