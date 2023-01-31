@@ -18,12 +18,33 @@ public class UnitedBasePageTest extends UnitedBase{
         unitedFlightSearchResultPage = new UnitedFlightSearchResultPage();
     }
     /**
+     Test Case 1: Validate "Main menu" navigation items
+     Given user is on "https://www.united.com/en/us"
+     Then user should see “Main menu” navigation items
+     | BOOK | MY TRIPS | TRAVEL INFO | MILEAGEPLUS® PROGRAM | DEALS | HELP |
+     */
+    @Test(priority = 1,  description = "Validate Main menu navigation items")
+    public void validateMainManuNavigationItems(){
+        String[] navigationItemsExpected = {
+                "BOOK",
+                "MY TRIPS",
+                "TRAVEL INFO",
+                "MILEAGEPLUS® PROGRAM",
+                "DEALS",
+                "HELP"};
+        IntStream.range(0, unitedBasePage.navigationItems.size()).forEach(i -> {
+            Assert.assertTrue(unitedBasePage.navigationItems.get(i).isDisplayed());
+            Assert.assertEquals(unitedBasePage.navigationItems.get(i).getText(),
+                    navigationItemsExpected[i]);
+        });
+    }
+    /**
      Test Case 2: Validate "Book travel menu" navigation items
      Given user is on "https://www.united.com/en/us"
      Then user should see "Book travel menu" navigation items
      | Book | Flight status | Check-in | My trips |
      */
-    @Test(priority = 1, description = "Validation of Book travel menu navigation items")
+    @Test(priority = 2, description = "Validation of Book travel menu navigation items")
     public void validateBookTravelManuNavigationItems(){
         String[] bookTravelManuItemsExpected = {
                 "Book",
@@ -45,7 +66,7 @@ public class UnitedBasePageTest extends UnitedBase{
      Then validate "One-way" radio button is selected while "Roundtrip" radio button is
      deselected
      */
-    @Test(priority = 2, description = "Validation of 'Round-trip' and 'One-way' radio buttons")
+    @Test(priority = 3, description = "Validation of 'Round-trip' and 'One-way' radio buttons")
     public void validateRadioButtons(){
         IntStream.range(0, unitedBasePage.radioButtonsInput.size()).forEach(i -> {
             Assert.assertTrue(unitedBasePage.radioButtonsLabel.get(i).isDisplayed());
@@ -69,7 +90,7 @@ public class UnitedBasePageTest extends UnitedBase{
      When user clicks on both selected checkboxes again
      Then validate both checkboxes are deselected
      */
-    @Test(priority = 3, description = "Validation of 'Book with miles' and 'Flexible dates' checkboxes")
+    @Test(priority = 4, description = "Validation of 'Book with miles' and 'Flexible dates' checkboxes")
     public void validateCheckBoxes(){
         Assert.assertTrue(unitedBasePage.bookWithMilesCheckBoxLabel.isDisplayed());
         Assert.assertTrue(unitedBasePage.bookWithMilesCheckBoxInput.isEnabled());
@@ -105,7 +126,7 @@ public class UnitedBasePageTest extends UnitedBase{
      Then validate departure equals to "DEPART ON: February 28"
      */
 
-    @Test(priority = 4)
+    @Test(priority = 5)
     public void validateOneWayTicketSearch(){
         unitedBasePage.radioButtonsInput.get(1).click();
         unitedBasePage.flightOriginInput.clear();

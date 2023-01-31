@@ -1,13 +1,10 @@
-utilities/DropdownHandler.class
-scripts/UnitedFlightSearchResultTest.class
-utilities/Waiter.class
-pages/UnitedMainPage.class
 utilities/Driver.class
-pages/UnitedHeaderPage.class
+utilities/DropdownHandler.class
 pages/UnitedBasePage.class
 utilities/ConfigReader.class
-scripts/UnitedHeaderTest.class
 scripts/UnitedBasePageTest.class
 scripts/UnitedBase.class
 pages/UnitedFlightSearchResultPage.class
 utilities/WindowHandler.class
+scripts/UnitedFlightSearchResultTest.class
+utilities/Waiter.class

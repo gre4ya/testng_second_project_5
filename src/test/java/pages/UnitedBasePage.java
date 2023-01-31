@@ -10,6 +10,8 @@ import java.util.List;
 public class UnitedBasePage {
     public UnitedBasePage(){PageFactory.initElements(Driver.getDriver(), this);}
 
+    @FindBy(css = "a[id*='headerNav']")
+    public List<WebElement> navigationItems;
     @FindBy(css = "ul[class*='3RNBj'] li")
     public List<WebElement> bookTravelManuItems;
     @FindBy(css = "div[class*='3WXQM'] input")

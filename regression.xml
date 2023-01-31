@@ -3,7 +3,6 @@
 <suite name="Regression">
     <test name="All Functionalities">
         <classes>
-            <class name="scripts.UnitedHeaderTest"/>
             <class name="scripts.UnitedBasePageTest"/>
         </classes>
     </test>

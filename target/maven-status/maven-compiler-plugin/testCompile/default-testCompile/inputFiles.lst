@@ -1,13 +1,10 @@
 /Users/gre4ya/IdeaProjects/testng_second_project_5/src/test/java/utilities/Waiter.java
 /Users/gre4ya/IdeaProjects/testng_second_project_5/src/test/java/utilities/WindowHandler.java
 /Users/gre4ya/IdeaProjects/testng_second_project_5/src/test/java/scripts/UnitedBase.java
-/Users/gre4ya/IdeaProjects/testng_second_project_5/src/test/java/pages/UnitedMainPage.java
-/Users/gre4ya/IdeaProjects/testng_second_project_5/src/test/java/scripts/UnitedHeaderTest.java
-/Users/gre4ya/IdeaProjects/testng_second_project_5/src/test/java/pages/UnitedBasePage.java
 /Users/gre4ya/IdeaProjects/testng_second_project_5/src/test/java/utilities/DropdownHandler.java
 /Users/gre4ya/IdeaProjects/testng_second_project_5/src/test/java/scripts/UnitedBasePageTest.java
 /Users/gre4ya/IdeaProjects/testng_second_project_5/src/test/java/utilities/Driver.java
 /Users/gre4ya/IdeaProjects/testng_second_project_5/src/test/java/pages/UnitedFlightSearchResultPage.java
 /Users/gre4ya/IdeaProjects/testng_second_project_5/src/test/java/utilities/ConfigReader.java
-/Users/gre4ya/IdeaProjects/testng_second_project_5/src/test/java/pages/UnitedHeaderPage.java
+/Users/gre4ya/IdeaProjects/testng_second_project_5/src/test/java/pages/UnitedBasePage.java
 /Users/gre4ya/IdeaProjects/testng_second_project_5/src/test/java/scripts/UnitedFlightSearchResultTest.java
