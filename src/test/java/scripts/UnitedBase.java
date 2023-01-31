@@ -15,7 +15,6 @@ public class UnitedBase {
     WebDriver driver;
     UnitedBasePage unitedBasePage;
     UnitedHeaderPage unitedHeaderPage;
-    UnitedMainPage unitedMainPage;
     UnitedFlightSearchResultPage unitedFlightSearchResultPage;
 
     @BeforeMethod

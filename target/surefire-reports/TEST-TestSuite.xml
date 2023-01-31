@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="57.022" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="53.085" tests="5" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_341.jdk/Contents/Home/jre/lib"/>
@@ -63,9 +63,9 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="validateMainManuNavigationItems" classname="scripts.UnitedHeaderTest" time="0.569"/>
-  <testcase name="validateBookTravelManuNavigationItems" classname="scripts.UnitedMainPageTest" time="0.322"/>
-  <testcase name="validateRadioButtons" classname="scripts.UnitedMainPageTest" time="0.507"/>
-  <testcase name="validateCheckBoxes" classname="scripts.UnitedMainPageTest" time="0.81"/>
-  <testcase name="validateOneWayTicketSearch" classname="scripts.UnitedMainPageTest" time="7.129"/>
+  <testcase name="validateMainManuNavigationItems" classname="scripts.UnitedHeaderTest" time="0.919"/>
+  <testcase name="validateBookTravelManuNavigationItems" classname="scripts.UnitedBasePageTest" time="0.343"/>
+  <testcase name="validateRadioButtons" classname="scripts.UnitedBasePageTest" time="0.517"/>
+  <testcase name="validateCheckBoxes" classname="scripts.UnitedBasePageTest" time="0.751"/>
+  <testcase name="validateOneWayTicketSearch" classname="scripts.UnitedBasePageTest" time="7.362"/>
 </testsuite>

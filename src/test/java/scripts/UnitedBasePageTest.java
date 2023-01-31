@@ -5,18 +5,16 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.UnitedBasePage;
 import pages.UnitedFlightSearchResultPage;
-import pages.UnitedMainPage;
 import utilities.DropdownHandler;
 import utilities.WindowHandler;
 
 import java.util.stream.IntStream;
 
-public class UnitedMainPageTest extends UnitedBase{
+public class UnitedBasePageTest extends UnitedBase{
 
     @BeforeMethod
     public void setPage(){
         unitedBasePage = new UnitedBasePage();
-        unitedMainPage = new UnitedMainPage();
         unitedFlightSearchResultPage = new UnitedFlightSearchResultPage();
     }
     /**
@@ -32,9 +30,9 @@ public class UnitedMainPageTest extends UnitedBase{
                 "Flight status",
                 "Check-in",
                 "My trips"};
-        IntStream.range(0, unitedMainPage.bookTravelManuItems.size()).forEach(i -> {
-            Assert.assertTrue(unitedMainPage.bookTravelManuItems.get(i).isDisplayed());
-            Assert.assertEquals(unitedMainPage.bookTravelManuItems.get(i).getText(),
+        IntStream.range(0, unitedBasePage.bookTravelManuItems.size()).forEach(i -> {
+            Assert.assertTrue(unitedBasePage.bookTravelManuItems.get(i).isDisplayed());
+            Assert.assertEquals(unitedBasePage.bookTravelManuItems.get(i).getText(),
                     bookTravelManuItemsExpected[i]);
         });
     }
@@ -49,17 +47,17 @@ public class UnitedMainPageTest extends UnitedBase{
      */
     @Test(priority = 2, description = "Validation of 'Round-trip' and 'One-way' radio buttons")
     public void validateRadioButtons(){
-        IntStream.range(0, unitedMainPage.radioButtonsInput.size()).forEach(i -> {
-            Assert.assertTrue(unitedMainPage.radioButtonsLabel.get(i).isDisplayed());
-            Assert.assertTrue(unitedMainPage.radioButtonsInput.get(i).isEnabled());
+        IntStream.range(0, unitedBasePage.radioButtonsInput.size()).forEach(i -> {
+            Assert.assertTrue(unitedBasePage.radioButtonsLabel.get(i).isDisplayed());
+            Assert.assertTrue(unitedBasePage.radioButtonsInput.get(i).isEnabled());
         });
-        Assert.assertTrue(unitedMainPage.radioButtonsInput.get(0).isSelected());
-        Assert.assertFalse(unitedMainPage.radioButtonsInput.get(1).isSelected());
+        Assert.assertTrue(unitedBasePage.radioButtonsInput.get(0).isSelected());
+        Assert.assertFalse(unitedBasePage.radioButtonsInput.get(1).isSelected());
 
-        unitedMainPage.radioButtonsInput.get(1).click();
+        unitedBasePage.radioButtonsInput.get(1).click();
 
-        Assert.assertTrue(unitedMainPage.radioButtonsInput.get(1).isSelected());
-        Assert.assertFalse(unitedMainPage.radioButtonsInput.get(0).isSelected());
+        Assert.assertTrue(unitedBasePage.radioButtonsInput.get(1).isSelected());
+        Assert.assertFalse(unitedBasePage.radioButtonsInput.get(0).isSelected());
     }
     /**
      Test Case 4: Validate "Book with miles" and "Flexible dates" checkboxes
@@ -73,25 +71,25 @@ public class UnitedMainPageTest extends UnitedBase{
      */
     @Test(priority = 3, description = "Validation of 'Book with miles' and 'Flexible dates' checkboxes")
     public void validateCheckBoxes(){
-        Assert.assertTrue(unitedMainPage.bookWithMilesCheckBoxLabel.isDisplayed());
-        Assert.assertTrue(unitedMainPage.bookWithMilesCheckBoxInput.isEnabled());
-        Assert.assertFalse(unitedMainPage.bookWithMilesCheckBoxInput.isSelected());
+        Assert.assertTrue(unitedBasePage.bookWithMilesCheckBoxLabel.isDisplayed());
+        Assert.assertTrue(unitedBasePage.bookWithMilesCheckBoxInput.isEnabled());
+        Assert.assertFalse(unitedBasePage.bookWithMilesCheckBoxInput.isSelected());
 
-        Assert.assertTrue(unitedMainPage.flexibleDatesCheckBoxLabel.isDisplayed());
-        Assert.assertTrue(unitedMainPage.flexibleDatesCheckBoxInput.isEnabled());
-        Assert.assertFalse(unitedMainPage.flexibleDatesCheckBoxInput.isSelected());
+        Assert.assertTrue(unitedBasePage.flexibleDatesCheckBoxLabel.isDisplayed());
+        Assert.assertTrue(unitedBasePage.flexibleDatesCheckBoxInput.isEnabled());
+        Assert.assertFalse(unitedBasePage.flexibleDatesCheckBoxInput.isSelected());
 
-        unitedMainPage.flexibleDatesCheckBoxLabel.click();
-        unitedMainPage.bookWithMilesCheckBoxLabel.click();
+        unitedBasePage.flexibleDatesCheckBoxLabel.click();
+        unitedBasePage.bookWithMilesCheckBoxLabel.click();
 
-        Assert.assertTrue(unitedMainPage.bookWithMilesCheckBoxInput.isSelected());
-        Assert.assertTrue(unitedMainPage.flexibleDatesCheckBoxInput.isSelected());
+        Assert.assertTrue(unitedBasePage.bookWithMilesCheckBoxInput.isSelected());
+        Assert.assertTrue(unitedBasePage.flexibleDatesCheckBoxInput.isSelected());
 
-        unitedMainPage.flexibleDatesCheckBoxLabel.click();
-        unitedMainPage.bookWithMilesCheckBoxLabel.click();
+        unitedBasePage.flexibleDatesCheckBoxLabel.click();
+        unitedBasePage.bookWithMilesCheckBoxLabel.click();
 
-        Assert.assertFalse(unitedMainPage.bookWithMilesCheckBoxInput.isSelected());
-        Assert.assertFalse(unitedMainPage.flexibleDatesCheckBoxInput.isSelected());
+        Assert.assertFalse(unitedBasePage.bookWithMilesCheckBoxInput.isSelected());
+        Assert.assertFalse(unitedBasePage.flexibleDatesCheckBoxInput.isSelected());
     }
     /**
      Test Case 5: Validate One-way ticket search results "from Chicago, IL, US (ORD) to
@@ -109,28 +107,28 @@ public class UnitedMainPageTest extends UnitedBase{
 
     @Test(priority = 4)
     public void validateOneWayTicketSearch(){
-        unitedMainPage.radioButtonsInput.get(1).click();
-        unitedMainPage.flightOriginInput.clear();
+        unitedBasePage.radioButtonsInput.get(1).click();
+        unitedBasePage.flightOriginInput.clear();
 
-        unitedMainPage.flightOriginInput.sendKeys("Chicago, IL, US (ORD)");
-        unitedMainPage.flightDestinationInput.clear();
+        unitedBasePage.flightOriginInput.sendKeys("Chicago, IL, US (ORD)");
+        unitedBasePage.flightDestinationInput.clear();
 
-        unitedMainPage.flightDestinationInput.sendKeys("Miami, FL, US (MIA)");
-        unitedMainPage.departDateInput.clear();
+        unitedBasePage.flightDestinationInput.sendKeys("Miami, FL, US (MIA)");
+        unitedBasePage.departDateInput.clear();
 
-        unitedMainPage.departDateInput.sendKeys("Feb 28");
-        unitedMainPage.departDateInput.click();
+        unitedBasePage.departDateInput.sendKeys("Feb 28");
+        unitedBasePage.departDateInput.click();
 
 //        WebElement monthGrid = driver.findElement(By.cssSelector("input[class*='DateInput_input']"));
 //        List<WebElement> allDates =
 //                driver.findElements(By.xpath("//div[contains(@class, 'CalendarMonth_caption')]//*[text()='February 2023']/../..//tbody//td"));
 
-        unitedMainPage.travelersSelectorButton.click();
-        unitedMainPage.travelersSelectorInput.sendKeys("2");
+        unitedBasePage.travelersSelectorButton.click();
+        unitedBasePage.travelersSelectorInput.sendKeys("2");
 
         DropdownHandler.clickOnDropdownOption(
-                unitedMainPage.cabinType, unitedMainPage.cabinDropdownOptions, "Business or First");
-        unitedMainPage.findFlightsButton.click();
+                unitedBasePage.cabinType, unitedBasePage.cabinDropdownOptions, "Business or First");
+        unitedBasePage.findFlightsButton.click();
 
         WindowHandler.switchToChildWindow();
         Assert.assertEquals(unitedFlightSearchResultPage.dateSearchResultHeader.getText(),

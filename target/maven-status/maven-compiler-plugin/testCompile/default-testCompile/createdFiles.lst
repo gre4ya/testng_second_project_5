@@ -1,5 +1,4 @@
 utilities/DropdownHandler.class
-scripts/UnitedMainPageTest.class
 scripts/UnitedFlightSearchResultTest.class
 utilities/Waiter.class
 pages/UnitedMainPage.class
@@ -8,6 +7,7 @@ pages/UnitedHeaderPage.class
 pages/UnitedBasePage.class
 utilities/ConfigReader.class
 scripts/UnitedHeaderTest.class
+scripts/UnitedBasePageTest.class
 scripts/UnitedBase.class
 pages/UnitedFlightSearchResultPage.class
 utilities/WindowHandler.class

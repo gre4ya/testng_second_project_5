@@ -4,7 +4,7 @@
     <test name="All Functionalities">
         <classes>
             <class name="scripts.UnitedHeaderTest"/>
-            <class name="scripts.UnitedMainPageTest"/>
+            <class name="scripts.UnitedBasePageTest"/>
         </classes>
     </test>
 </suite>
