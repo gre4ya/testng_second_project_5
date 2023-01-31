@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import pages.UnitedBasePage;
 import pages.UnitedFlightSearchResultPage;
 import utilities.DropdownHandler;
+import utilities.Waiter;
 import utilities.WindowHandler;
 
 import java.util.stream.IntStream;
@@ -92,25 +93,21 @@ public class UnitedBasePageTest extends UnitedBase{
      */
     @Test(priority = 4, description = "Validation of 'Book with miles' and 'Flexible dates' checkboxes")
     public void validateCheckBoxes(){
-        Assert.assertTrue(unitedBasePage.bookWithMilesCheckBoxLabel.isDisplayed());
-        Assert.assertTrue(unitedBasePage.bookWithMilesCheckBoxInput.isEnabled());
-        Assert.assertFalse(unitedBasePage.bookWithMilesCheckBoxInput.isSelected());
-
-        Assert.assertTrue(unitedBasePage.flexibleDatesCheckBoxLabel.isDisplayed());
-        Assert.assertTrue(unitedBasePage.flexibleDatesCheckBoxInput.isEnabled());
-        Assert.assertFalse(unitedBasePage.flexibleDatesCheckBoxInput.isSelected());
-
-        unitedBasePage.flexibleDatesCheckBoxLabel.click();
-        unitedBasePage.bookWithMilesCheckBoxLabel.click();
-
-        Assert.assertTrue(unitedBasePage.bookWithMilesCheckBoxInput.isSelected());
-        Assert.assertTrue(unitedBasePage.flexibleDatesCheckBoxInput.isSelected());
-
-        unitedBasePage.flexibleDatesCheckBoxLabel.click();
-        unitedBasePage.bookWithMilesCheckBoxLabel.click();
-
-        Assert.assertFalse(unitedBasePage.bookWithMilesCheckBoxInput.isSelected());
-        Assert.assertFalse(unitedBasePage.flexibleDatesCheckBoxInput.isSelected());
+        for (int i = 0; i < unitedBasePage.checkBoxInput.size(); i++) {
+            Assert.assertTrue(unitedBasePage.checkBoxLabel.get(i).isDisplayed());
+            Assert.assertTrue(unitedBasePage.checkBoxInput.get(i).isEnabled());
+            Assert.assertFalse(unitedBasePage.checkBoxInput.get(i).isSelected());
+        }
+        for (int i = 0; i < unitedBasePage.checkBoxLabel.size(); i++) {
+            unitedBasePage.checkBoxLabel.get(i).click();
+            Waiter.pause(1);
+            Assert.assertTrue(unitedBasePage.checkBoxInput.get(i).isSelected());
+        }
+        for (int i = 0; i < unitedBasePage.checkBoxLabel.size(); i++) {
+            unitedBasePage.checkBoxLabel.get(i).click();
+            Waiter.pause(1);
+            Assert.assertFalse(unitedBasePage.checkBoxInput.get(i).isSelected());
+        }
     }
     /**
      Test Case 5: Validate One-way ticket search results "from Chicago, IL, US (ORD) to

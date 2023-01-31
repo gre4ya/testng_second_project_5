@@ -18,10 +18,10 @@ public class UnitedBasePage {
     public List<WebElement> radioButtonsInput;
     @FindBy(css = "label[class*='VrnUD']")
     public List<WebElement> radioButtonsLabel;
-    @FindBy(id = "award")
-    public WebElement bookWithMilesCheckBoxInput;
-    @FindBy(css = "div[class*='2SGSV']>label")
-    public WebElement bookWithMilesCheckBoxLabel;
+    @FindBy(css = "input[class*='box']")
+    public List<WebElement> checkBoxInput;
+    @FindBy(xpath = "//input[contains(@class,'box')]/../label")
+    public List<WebElement> checkBoxLabel;
     @FindBy(id = "flexibleDates")
     public WebElement flexibleDatesCheckBoxInput;
     @FindBy(css = "div[class*='2wMRQ']>label")
